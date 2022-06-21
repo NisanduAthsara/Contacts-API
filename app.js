@@ -7,6 +7,14 @@ require("dotenv").config();
 const db = require('./utilities/db')
 db.connect()
 
+const cors = require("cors");
+app.use(
+	cors({
+		origin: "*",
+		optionsSuccessStatus: 200,
+	})
+);
+
 app.use(express.json())
 
 const routes = require('./services/routes/router')
